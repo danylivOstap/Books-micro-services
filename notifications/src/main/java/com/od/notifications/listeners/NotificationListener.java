@@ -28,7 +28,7 @@ public class NotificationListener {
 
 			final Notification savedNotification = notificationService.save(notification);
 
-			log.info("Notification '{}' persisted!", savedNotification.getTimestamp().toString());
+			log.info("Notification '{}' persisted!", savedNotification.getId());
 
 		} catch(final JsonProcessingException ex) {
 			log.error("Invalid message received: {}", in);

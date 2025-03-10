@@ -58,11 +58,11 @@ public class BookPublishedListener {
   }
 
   private Book bookFromPayload(final Map<String, Object> payload) {
-    final Long authorId = (Long)((HashMap<String, Object>)payload.get("author")).get("id");
+    final Integer authorId = (Integer)((HashMap<String, Object>)payload.get("author")).get("id"); /* <- Don't do this in prod!!! :| */
     return Book.builder()
         .isbn(payload.get("isbn").toString())
         .title(payload.get("title").toString())
-        .author(authorId)
+        .author(authorId.longValue())
         .build();
   }
 
